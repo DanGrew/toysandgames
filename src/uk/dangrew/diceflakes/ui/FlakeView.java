@@ -2,15 +2,15 @@ package uk.dangrew.diceflakes.ui;
 
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
-import uk.dangrew.diceflakes.hexagon.Hexagon;
+import uk.dangrew.diceflakes.hexagon.Shape;
 
 import java.util.stream.IntStream;
 
 public class FlakeView extends Group {
 
-    public FlakeView(){
-        IntStream.of(1, 2, 3, 4, 5, 6).forEach(diceRoll -> {
-            getChildren().add(new Circle(Hexagon.xFor(diceRoll), Hexagon.yFor(diceRoll), 10));
+    public void outlineShape(Shape shape){
+        IntStream.range(1, shape.edges() + 1).forEach(diceRoll -> {
+            getChildren().add(new Circle(shape.xFor(diceRoll), shape.yFor(diceRoll), 10));
         });
     }
 

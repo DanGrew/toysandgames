@@ -1,6 +1,6 @@
 package uk.dangrew.diceflakes.hexagon;
 
-public class Hexagon {
+public class Hexagon implements Shape {
 
     private static final double WIDTH = 250;
     private static final double X_COMPONENT = WIDTH / 2;
@@ -15,11 +15,18 @@ public class Hexagon {
             {X_COMPONENT, -Y_COMPONENT} //F
     };
 
-    public static int xFor(int diceValue) {
-        return (int)coordinates[diceValue - 1][0];
+    @Override
+    public int edges() {
+        return 6;
     }
 
-    public static int yFor(int diceValue) {
-        return (int)coordinates[diceValue - 1][1];
+    @Override
+    public int xFor(int diceValue) {
+        return (int) coordinates[diceValue - 1][0];
+    }
+
+    @Override
+    public int yFor(int diceValue) {
+        return (int) coordinates[diceValue - 1][1];
     }
 }

@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import uk.dangrew.diceflakes.hexagon.Generator;
+import uk.dangrew.diceflakes.hexagon.Hexagon;
+import uk.dangrew.diceflakes.hexagon.Shape;
 import uk.dangrew.diceflakes.ui.FlakeView;
 
 /**
@@ -31,7 +33,9 @@ public class DiceFlakes extends Application {
         FlakeView flakeView = new FlakeView();
         wrapper.setCenter(flakeView);
 
-        new Generator(flakeView).generate();
+        Shape shape = new Hexagon();
+        flakeView.outlineShape(shape);
+        new Generator(shape, flakeView).generate();
 
         stage.show();
         stage.setWidth(600);
